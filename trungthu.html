@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Trung Thu</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 30%, #2d4a6b 70%, #4a6fa5 100%);
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Trăng tròn */
+        .moon {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #fff9e6, #f0e68c);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.4);
+            animation: moonGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes moonGlow {
+            0% { box-shadow: 0 0 50px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.4); }
+            100% { box-shadow: 0 0 70px rgba(255, 255, 255, 1), 0 0 140px rgba(255, 255, 255, 0.6); }
+        }
+
+        /* Ngôi sao */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Lời chúc chính giữa */
+        .greeting {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 10;
+        }
+
+        .greeting h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(45deg, #ffd700, #ffeb3b, #fff176);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .greeting p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+            color: #e8f4fd;
+        }
+
+        @keyframes textGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1)); }
+        }
+
+        /* Lồng đèn */
+        .lantern {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .lantern-body {
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border-radius: 20px 20px 10px 10px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .lantern-top {
+            width: 20px;
+            height: 8px;
+            background: #8b4513;
+            border-radius: 4px;
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lantern-bottom {
+            width: 15px;
+            height: 15px;
+            background: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lantern-pattern {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #8b0000;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Các lồng đèn với vị trí và thời gian khác nhau */
+        .lantern1 {
+            left: 10%;
+            bottom: -100px;
+            animation-delay: 0s;
+        }
+
+        .lantern2 {
+            left: 25%;
+            bottom: -100px;
+            animation-delay: 2s;
+        }
+
+        .lantern3 {
+            left: 75%;
+            bottom: -100px;
+            animation-delay: 4s;
+        }
+
+        .lantern4 {
+            left: 90%;
+            bottom: -100px;
+            animation-delay: 6s;
+        }
+
+        .lantern5 {
+            left: 40%;
+            bottom: -100px;
+            animation-delay: 1s;
+        }
+
+        .lantern6 {
+            left: 60%;
+            bottom: -100px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            25% {
+                transform: translateY(-200px) rotate(5deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-400px) rotate(-3deg);
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(-600px) rotate(2deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-800px) rotate(0deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .greeting h1 {
+                font-size: 2rem;
+            }
+            .greeting p {
+                font-size: 1rem;
+            }
+            .moon {
+                width: 80px;
+                height: 80px;
+                top: 8%;
+                right: 10%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bầu trời sao -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Trăng tròn -->
+    <div class="moon"></div>
+    
+    <!-- Lời chúc -->
+    <div class="greeting">
+        <h1>Chúc Bạn Trung Thu Vui Vẻ</h1>
+        <p>🌕 Mãi vui vẻ hạnh phúc 🏮</p>
+    </div>
+    
+    <!-- Lồng đèn bay -->
+    <div class="lantern lantern1">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+            <div class="lantern-pattern">福</div>
+        </div>
+        <div class="lantern-bottom"></div>
+    </div>
+    
+    <div class="lantern lantern2">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+            <div class="lantern-pattern">喜</div>
+        </div>
+        <div class="lantern-bottom"></div>
+    </div>
+    
+    <div class="lantern lantern3">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+            <div class="lantern-pattern">月</div>
+        </div>
+        <div class="lantern-bottom"></div>
+    </div>
+    
+    <div class="lantern lantern4">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+            <div class="lantern-pattern">圆</div>
+        </div>
+        <div class="lantern-bottom"></div>
+    </div>
+    
+    <div class="lantern lantern5">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+            <div class="lantern-pattern">团</div>
+        </div>
+        <div class="lantern-bottom"></div>
+    </div>
+    
+    <div class="lantern lantern6">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+            <div class="lantern-pattern">圆</div>
+        </div>
+        <div class="lantern-bottom"></div>
+    </div>
+
+    <script>
+        // Tạo ngôi sao ngẫu nhiên
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Tạo lồng đèn mới liên tục
+        function createNewLantern() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+            const characters = ['福', '喜', '月', '圆', '团', '和', '美', '满'];
+            
+            const lantern = document.createElement('div');
+            lantern.className = 'lantern';
+            lantern.style.left = Math.random() * 90 + '%';
+            lantern.style.bottom = '-100px';
+            
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const character = characters[Math.floor(Math.random() * characters.length)];
+            
+            lantern.innerHTML = `
+                <div class="lantern-top"></div>
+                <div class="lantern-body" style="background: linear-gradient(45deg, ${color}, ${color}aa);">
+                    <div class="lantern-pattern">${character}</div>
+                </div>
+                <div class="lantern-bottom"></div>
+            `;
+            
+            document.body.appendChild(lantern);
+            
+            // Xóa lồng đèn sau khi animation kết thúc
+            setTimeout(() => {
+                if (lantern.parentNode) {
+                    lantern.parentNode.removeChild(lantern);
+                }
+            }, 8000);
+        }
+        
+        // Khởi tạo
+        createStars();
+        
+        // Tạo lồng đèn mới mỗi 3 giây
+        setInterval(createNewLantern, 3000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989106f052670452',t:'MTc1OTU0MjYxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
